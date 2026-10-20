@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mockups – Palavra do Dia</title>
+    <style>
+      :root {
+        --bg: #f5f7ff;
+        --card: #ffffff;
+        --ink: #1d2a40;
+        --muted: #5b6b88;
+        --primary: #6d5efc;
+        --primary-soft: #eef0ff;
+        --success: #48c98c;
+        --warning: #efc85a;
+        --gray: #c0cadf;
+        --shadow: 0 18px 42px rgba(60, 77, 145, 0.12);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #f6f7ff 0%, #edf3ff 100%);
+        font-family: Inter, Arial, sans-serif;
+        color: var(--ink);
+      }
+      .wrap {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 32px 18px 60px;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 24px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: clamp(2rem, 3vw, 3rem);
+      }
+      .pill {
+        background: var(--primary-soft);
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      .mockup-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+      .mockup {
+        background: var(--card);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+        padding: 18px;
+        border: 1px solid rgba(109, 94, 252, 0.08);
+      }
+      .mockup-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+      .mockup-header strong {
+        font-size: 1.1rem;
+      }
+      .tag {
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .ux .tag { background: #e7f7ef; color: #1d7f55; }
+      .a11y .tag { background: #e9eafe; color: #4d46d4; }
+      .visual .tag { background: #fff3da; color: #b67517; }
+
+      .phone {
+        background: linear-gradient(180deg, #f9f9ff 0%, #eef5ff 100%);
+        border-radius: 28px;
+        padding: 16px 14px 12px;
+        border: 3px solid rgba(118, 128, 172, 0.18);
+      }
+      .topbar-mini {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+      .dot-row {
+        display: flex; gap: 6px;
+      }
+      .dot { width: 10px; height: 10px; border-radius: 50%; background: #d9def3; }
+      .dot:nth-child(1) { background: #ff9a9a; }
+      .dot:nth-child(2) { background: #ffcc69; }
+      .dot:nth-child(3) { background: #7fd7a6; }
+      .panel-mini {
+        background: rgba(255,255,255,0.9);
+        border-radius: 18px;
+        padding: 14px 12px;
+        box-shadow: inset 0 0 0 1px rgba(109, 94, 252, 0.06);
+      }
+      .theme {
+        display: flex; justify-content: space-between; align-items: center;
+        color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.09em;
+      }
+      .big {
+        font-size: 1.7rem; font-weight: 800; margin: 12px 0 6px;
+      }
+      .row-mini {
+        display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 12px;
+      }
+      .cell-mini {
+        aspect-ratio: 1;
+        border-radius: 12px;
+        display: flex; align-items: center; justify-content: center; font-weight: 800;
+        background: #edf2ff; color: var(--ink);
+      }
+      .cell-mini.correct { background: var(--success); color: white; }
+      .cell-mini.present { background: var(--warning); color: white; }
+      .cell-mini.absent { background: #d6dae5; color: #5f6881; }
+      .key-mini {
+        display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-top: 12px;
+      }
+      .key-mini span {
+        display: flex; align-items: center; justify-content: center; height: 24px;
+        border-radius: 8px; background: #edf2ff; font-size: 0.72rem; font-weight: 700;
+      }
+      .key-mini .correct { background: var(--success); color: white; }
+      .key-mini .present { background: var(--warning); color: white; }
+      .key-mini .absent { background: #dfe6f2; }
+      .stats {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px;
+      }
+      .stat {
+        background: #f5f7ff; border-radius: 12px; text-align: center; padding: 10px 8px;
+      }
+      .stat small { color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.62rem; display: block; }
+      .stat strong { font-size: 1.1rem; }
+      .cta {
+        margin-top: 16px; display: block; width: 100%; text-align: center; padding: 14px 16px; border-radius: 14px; font-weight: 800;
+        color: white; background: linear-gradient(135deg, var(--primary), #8b76ff); border: 0;
+      }
+      .meta-list {
+        margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.5;
+      }
+      .legend {
+        display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;
+      }
+      .badge {
+        display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; background: #f5f7ff;
+      }
+      .swatch {
+        width: 12px; height: 12px; border-radius: 50%; display: inline-block;
+      }
+      .swatch.green { background: var(--success); }
+      .swatch.yellow { background: var(--warning); }
+      .swatch.gray { background: #dfe6f2; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="header">
+        <h1>Protótipos de interface</h1>
+        <div class="pill">3 conceitos</div>
+      </div>
+
+      <div class="mockup-grid">
+        <article class="mockup ux">
+          <div class="mockup-header">
+            <strong>Mockup 1 — UX enxuta</strong>
+            <span class="tag">UX</span>
+          </div>
+          <div class="phone">
+            <div class="topbar-mini">
+              <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <strong>9:41</strong>
+            </div>
+            <div class="panel-mini">
+              <div class="theme"><span>Tema do dia</span><span>🐾</span></div>
+              <div class="big">Animais</div>
+              <div class="theme"><span>5 letras</span><span>1/6</span></div>
+              <div class="row-mini">
+                <div class="cell-mini">A</div><div class="cell-mini absent">B</div><div class="cell-mini">C</div><div class="cell-mini">D</div><div class="cell-mini">E</div>
+              </div>
+              <div class="row-mini">
+                <div class="cell-mini present">R</div><div class="cell-mini">A</div><div class="cell-mini">N</div><div class="cell-mini">D</div><div class="cell-mini">O</div>
+              </div>
+              <div class="row-mini">
+                <div class="cell-mini correct">C</div><div class="cell-mini correct">A</div><div class="cell-mini">C</div><div class="cell-mini">H</div><div class="cell-mini">O</div>
+              </div>
+              <div class="key-mini">
+                <span class="correct">C</span><span>H</span><span>A</span><span class="present">O</span><span>U</span><span>R</span><span>R</span><span>O</span><span>G</span><span>O</span>
+              </div>
+            </div>
+            <div class="stats">
+              <div class="stat"><small>Streak</small><strong>4</strong></div>
+              <div class="stat"><small>Vit.</small><strong>12</strong></div>
+              <div class="stat"><small>Acerto</small><strong>62%</strong></div>
+            </div>
+            <button class="cta">Jogar</button>
+          </div>
+        </article>
+
+        <article class="mockup a11y">
+          <div class="mockup-header">
+            <strong>Mockup 2 — Acessibilidade</strong>
+            <span class="tag">A11Y</span>
+          </div>
+          <div class="phone">
+            <div class="topbar-mini">
+              <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <strong>Menu</strong>
+            </div>
+            <div class="panel-mini">
+              <div class="theme"><span>Categoria</span><span>🔎</span></div>
+              <div class="big">Ciência</div>
+              <div class="legend">
+                <span class="badge"><span class="swatch green"></span>Correta</span>
+                <span class="badge"><span class="swatch yellow"></span>Na palavra</span>
+                <span class="badge"><span class="swatch gray"></span>Ausente</span>
+              </div>
+              <div class="row-mini">
+                <div class="cell-mini">L</div><div class="cell-mini">U</div><div class="cell-mini present">Z</div><div class="cell-mini">A</div><div class="cell-mini">R</div>
+              </div>
+              <div class="row-mini">
+                <div class="cell-mini correct">A</div><div class="cell-mini correct">T</div><div class="cell-mini">O</div><div class="cell-mini">M</div><div class="cell-mini correct">O</div>
+              </div>
+            </div>
+            <ul class="meta-list">
+              <li>Contraste forte</li>
+              <li>Botões grandes para toque</li>
+              <li>Foco visível em teclado</li>
+            </ul>
+            <button class="cta">Continuar</button>
+          </div>
+        </article>
+
+        <article class="mockup visual">
+          <div class="mockup-header">
+            <strong>Mockup 3 — Visual alegre</strong>
+            <span class="tag">Visual</span>
+          </div>
+          <div class="phone">
+            <div class="topbar-mini">
+              <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <strong>Hoje</strong>
+            </div>
+            <div class="panel-mini" style="background: linear-gradient(180deg,#fff7db,#eef5ff);">
+              <div class="theme"><span>tema</span><span>🍽️</span></div>
+              <div class="big" style="color:#6d5efc;">Comida</div>
+              <div class="row-mini">
+                <div class="cell-mini">P</div><div class="cell-mini">I</div><div class="cell-mini present">Z</div><div class="cell-mini">Z</div><div class="cell-mini">A</div>
+              </div>
+              <div class="row-mini">
+                <div class="cell-mini correct">P</div><div class="cell-mini correct">I</div><div class="cell-mini correct">Z</div><div class="cell-mini correct">Z</div><div class="cell-mini correct">A</div>
+              </div>
+            </div>
+            <div class="stats">
+              <div class="stat"><small>Vit.</small><strong>18</strong></div>
+              <div class="stat"><small>Melhor</small><strong>7</strong></div>
+              <div class="stat"><small>Última</small><strong>Pizza</strong></div>
+            </div>
+            <button class="cta">Compartilhar</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>

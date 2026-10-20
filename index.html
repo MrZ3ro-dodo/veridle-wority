@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palavra do Dia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <button id="homeButton" class="ghost-button" aria-label="Voltar ao início">←</button>
+        <div class="brand-block">
+          <span class="brand-kicker">Jogo diário</span>
+          <h1>Palavra do Dia</h1>
+        </div>
+        <button id="statusButton" class="ghost-button" aria-label="Ver estatísticas">📊</button>
+      </header>
+
+      <main class="screen active" id="startScreen">
+        <section class="hero-card panel">
+          <p class="eyebrow">Tema do dia</p>
+          <h2 id="themePreview">Animais</h2>
+          <div class="hero-illustration" aria-hidden="true">
+            <span>🐾</span>
+            <span>🦊</span>
+            <span>🐼</span>
+          </div>
+          <p class="description">
+            Descubra a palavra secreta em até 6 tentativas. Cada letra revela se ela está correta, no lugar certo ou fora da palavra.
+          </p>
+          <button id="startButton" class="primary-button">Começar</button>
+        </section>
+      </main>
+
+      <main class="screen" id="gameScreen">
+        <section class="panel game-panel">
+          <div class="game-meta">
+            <div>
+              <span class="label">Tema</span>
+              <strong id="themeLabel">Animais</strong>
+            </div>
+            <div>
+              <span class="label">Letras</span>
+              <strong id="wordLength">5</strong>
+            </div>
+            <div>
+              <span class="label">Tentativas</span>
+              <strong id="attemptCounter">0/6</strong>
+            </div>
+          </div>
+
+          <div id="board" class="board" aria-live="polite"></div>
+
+          <div class="message-row">
+            <p id="message" class="message" aria-live="polite">Faça sua primeira tentativa.</p>
+          </div>
+
+          <div id="keyboard" class="keyboard" aria-label="Teclado virtual"></div>
+        </section>
+      </main>
+
+      <aside class="panel stats-panel hidden" id="statsPanel">
+        <h3>Estatísticas</h3>
+        <div class="stats-grid">
+          <div><span>Sequência</span><strong id="streakValue">0</strong></div>
+          <div><span>Melhor</span><strong id="bestStreakValue">0</strong></div>
+          <div><span>Vitórias</span><strong id="winsValue">0</strong></div>
+          <div><span>Total</span><strong id="gamesValue">0</strong></div>
+          <div><span>Última</span><strong id="lastWordValue">—</strong></div>
+          <div><span>Acerto</span><strong id="winRateValue">0%</strong></div>
+        </div>
+      </aside>
+    </div>
+
+    <div id="resultModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <div class="modal-card panel">
+        <p class="eyebrow">Resultado</p>
+        <h2 id="resultTitle">Você venceu!</h2>
+        <p id="resultText">A palavra era <strong>... </strong></p>
+        <button id="shareButton" class="secondary-button">Compartilhar</button>
+        <button id="playAgainButton" class="primary-button">Jogar de novo</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
